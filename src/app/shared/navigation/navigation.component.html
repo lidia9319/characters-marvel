@@ -1,0 +1,24 @@
+<mat-sidenav-container fullscreen>
+  <mat-sidenav #sidenav mode="push">
+      <mat-toolbar fxLayout="row" fxLayoutAlign="center center">
+          <span>Marvel</span>
+          <button mat-icon-button (click)="sidenav.toggle()">
+              <mat-icon>menu</mat-icon>
+          </button>
+      </mat-toolbar>
+      <mat-nav-list (click)="sidenav.toggle()">
+          <a routerLink="/marvel/characters" mat-list-item>
+              <mat-icon mat-list-icon>label</mat-icon>
+              <span>Heroes list</span>
+          </a>
+      </mat-nav-list>
+  </mat-sidenav>
+  <mat-toolbar class="between">
+      <button mat-icon-button (click)="sidenav.toggle()">
+          <mat-icon>menu</mat-icon>
+      </button>
+  </mat-toolbar>
+  <div class="container">
+      <router-outlet></router-outlet>
+  </div>
+</mat-sidenav-container>

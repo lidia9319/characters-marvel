@@ -1,0 +1,31 @@
+<mat-grid-list cols="1" *ngIf="!character; else divCharacter">
+  <mat-grid-tile>
+    <mat-spinner></mat-spinner>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<ng-template #divCharacter>
+  <div fxLayout="row" fxLayout.xs="column">
+    <div fxFlex="50">
+      <h1>
+        {{character.name}}
+        -
+        <small>{{character.description || "This heroe has not description"}}</small>
+      </h1>
+      <mat-divider></mat-divider>
+      <img mat-card-image [src]="character.thumbnail | characterImage"
+        [alt]="character.name">
+    </div>
+    <div fxFlex="50">
+      <!--    <h1> {{heroe.publisher}} </h1>
+          <mat-divider></mat-divider>
+          <mat-list>
+              <mat-list-item>{{heroe.first_appearance}}</mat-list-item>
+              <mat-list-item>{{heroe.characters}}</mat-list-item>
+              <mat-list-item>{{heroe.publisher}}</mat-list-item>
+              <mat-list-item>{{heroe.alter_ego}}</mat-list-item>
+          </mat-list> -->
+      <button mat-button color="warn" (click)="comeback()">Come back</button>
+    </div>
+  </div>
+</ng-template>

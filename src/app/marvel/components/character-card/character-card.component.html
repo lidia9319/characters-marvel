@@ -1,10 +1,9 @@
-<div class="character-card" style="background-color: red;">
-  <a [routerLink]="['/marvel/characters/' + character.id]">
-    <img class="character-card__image" [src]="character.thumbnail | characterImage" alt="">
-    <div class="character-card__body">
-      <p class="character-card__title">
-        {{character.name}}
-      </p>
-    </div>
-  </a>
+<div class="character-card">
+  <img class="character-card__image" [src]="character.thumbnail | characterImage" alt="">
+  <div class="character-card__body">
+    <p class="character-card__title">
+      {{character.name}}
+    </p>
+    <a [routerLink]="['/marvel/characters/' + character.id]" class="character-card__detail">See detail</a>
+  </div>
 </div>

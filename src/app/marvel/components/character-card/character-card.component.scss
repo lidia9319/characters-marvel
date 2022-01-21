@@ -1,7 +1,6 @@
 .character-card {
-  background-color: #f44336;
+  background-color: #7fc9ff;
   border-radius: 0.4rem;
-  cursor: pointer;
   margin-top: 20px;
   overflow: hidden;
 
@@ -18,6 +17,20 @@
 
   &__title {
     font-size: 1.8rem;
+  }
+
+  &__detail {
+    background: #1a782e;
+    border-radius: 0.4rem;
+    display: block;
+    text-align: center;
+    transition: all 0.3s ease;
+    padding: 0.6rem;
+
+    &:hover {
+      box-shadow: 0 1px 8px #1a782ec2;
+      transform: translateY(-2px);
+    }
   }
 
   :hover &__image {

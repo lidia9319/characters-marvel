@@ -13,19 +13,8 @@
         <small>{{character.description || "This heroe has not description"}}</small>
       </h1>
       <mat-divider></mat-divider>
-      <img mat-card-image [src]="character.thumbnail | characterImage"
-        [alt]="character.name">
-    </div>
-    <div fxFlex="50">
-      <!--    <h1> {{heroe.publisher}} </h1>
-          <mat-divider></mat-divider>
-          <mat-list>
-              <mat-list-item>{{heroe.first_appearance}}</mat-list-item>
-              <mat-list-item>{{heroe.characters}}</mat-list-item>
-              <mat-list-item>{{heroe.publisher}}</mat-list-item>
-              <mat-list-item>{{heroe.alter_ego}}</mat-list-item>
-          </mat-list> -->
-      <button mat-button color="warn" (click)="comeback()">Come back</button>
+      <img mat-card-image [src]="character.thumbnail | characterImage" [alt]="character.name">
     </div>
   </div>
+  <button mat-button color="warn" (click)="comeback()">Come back</button>
 </ng-template>

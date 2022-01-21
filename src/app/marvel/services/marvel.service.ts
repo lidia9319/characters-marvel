@@ -31,8 +31,16 @@ export class MarvelService {
     return params;
   }
 
-  getAllCharacters(): Observable<Character[]> {
-    return this.http.get<CharactersRs>(`${environment.marvelAPI.baseUrl}/v1/public/characters?limit=10`, {
+  getAllCharacters(limit: number = 100, offset: number = 0): Observable<Character[]> {
+    return this.http.get<CharactersRs>(`${environment.marvelAPI.baseUrl}/v1/public/characters?limit=${limit}&offset=${offset}`, {
+      params: this.setParams()
+    }).pipe(
+      map(response => response.data.results)
+    )
+  }
+
+  getCharactersByNameStartsWith(name: string): Observable<Character[]> {
+    return this.http.get<CharactersRs>(`${environment.marvelAPI.baseUrl}/v1/public/characters?nameStartsWith=${name}`, {
       params: this.setParams()
     }).pipe(
       map(response => response.data.results)

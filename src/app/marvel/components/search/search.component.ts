@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { copyFile } from 'fs';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-search',
@@ -9,30 +8,34 @@ import { copyFile } from 'fs';
 export class SearchComponent implements OnInit {
   public term: string = '';
 
-  constructor() {}
+  @Output() newCharactersEvent: EventEmitter<string> = new EventEmitter<string>();
+  @Output() initCharactersEvent: EventEmitter<void> = new EventEmitter<void>();
 
-  ngOnInit(): void {}
+  constructor() { }
 
-  handleKeyPress(event: KeyboardEvent) {
-    if (
-      (event.key === 'Enter' || event.code === 'Enter') &&
-      this.isValidFieldTerm()
-    ) {
+  ngOnInit(): void { }
+
+  handleKeyUp(event: KeyboardEvent) {
+    if (!this.isValidFieldTerm() && event.key === "Backspace") {
+      this.initCharactersEvent.emit();
+    }
+
+    if (this.isValidFieldTerm() && (event.key === 'Enter' || event.code === 'Enter')) {
       this.searchCharactersByName(this.term);
     }
   }
 
   isValidFieldTerm(): boolean {
-    return this.term.trim() !== '';
+    return this.term !== "";
   }
 
   handleClick() {
-    if (!this.isValidFieldTerm()) return;
-
-    this.searchCharactersByName(this.term);
+    if (this.isValidFieldTerm()) {
+      this.searchCharactersByName(this.term);
+    }
   }
 
   searchCharactersByName(name: string) {
-    console.log('name', name);
+    this.newCharactersEvent.emit(name);
   }
 }

@@ -1,5 +1,5 @@
 <mat-form-field class="search" appearance="outline">
-    <mat-label>Search characters</mat-label>
-    <input matInput placeholder="Character name..." name="term" [(ngModel)]="term" (keypress)="handleKeyPress($event)">
-    <mat-icon class="search__icon" matSuffix (click)="handleClick()">search</mat-icon>
+  <mat-label>Search characters</mat-label>
+  <input matInput placeholder="Character name..." name="term" [(ngModel)]="term" (keyup)="handleKeyUp($event)">
+  <mat-icon class="search__icon" matSuffix (click)="handleClick()">search</mat-icon>
 </mat-form-field>

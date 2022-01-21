@@ -9,6 +9,7 @@ import { CharacterImagePipe } from './pipes/character-image.pipe';
 import { CharacterComponent } from './characters/pages/character/character.component';
 import { SearchComponent } from './components/search/search.component';
 import { FormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -22,8 +23,9 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     FlexLayoutModule,
     FormsModule,
+    NgxPaginationModule,
     MaterialModule,
-    MarvelRoutingModule
+    MarvelRoutingModule,
   ]
 })
 export class MarvelModule { }

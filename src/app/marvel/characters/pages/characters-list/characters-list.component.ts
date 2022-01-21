@@ -21,7 +21,7 @@ export class CharactersListComponent implements OnInit {
   getAllCharacters() {
     this.sppiner.show();
 
-    this.marvelService.getAllCharacters(20, 25).subscribe(response => {
+    this.marvelService.getAllCharacters(20).subscribe(response => {
       this.characters = response;
     }).add(() => {
       this.sppiner.hide();
@@ -33,6 +33,7 @@ export class CharactersListComponent implements OnInit {
     this.marvelService.getCharactersByNameStartsWith(name).subscribe(response => {
       this.characters = response;
     }).add(() => {
+      this.page = 1;
       this.sppiner.hide();
     });
   }

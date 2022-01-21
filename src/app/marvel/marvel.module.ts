@@ -10,6 +10,8 @@ import { CharacterComponent } from './characters/pages/character/character.compo
 import { SearchComponent } from './components/search/search.component';
 import { FormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { ComicComponent } from './components/comic/comic.component';
 
 @NgModule({
   declarations: [
@@ -17,13 +19,15 @@ import { NgxPaginationModule } from 'ngx-pagination';
     CharacterCardComponent,
     CharacterImagePipe,
     CharacterComponent,
-    SearchComponent
+    SearchComponent,
+    ComicComponent
   ],
   imports: [
     CommonModule,
     FlexLayoutModule,
     FormsModule,
     NgxPaginationModule,
+    NgxSpinnerModule,
     MaterialModule,
     MarvelRoutingModule,
   ]

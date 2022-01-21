@@ -1,20 +1,21 @@
-<mat-grid-list cols="1" *ngIf="!character; else divCharacter">
-  <mat-grid-tile>
-    <mat-spinner></mat-spinner>
-  </mat-grid-tile>
-</mat-grid-list>
+<ngx-spinner *ngIf="!character; else divCharacter"></ngx-spinner>
 
 <ng-template #divCharacter>
   <div fxLayout="row" fxLayout.xs="column">
-    <div fxFlex="50">
-      <h1>
-        {{character.name}}
-        -
-        <small>{{character.description || "This heroe has not description"}}</small>
-      </h1>
+    <div>
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.6rem;">
+        <h2 style="margin: 0">
+          {{character.name}}
+        </h2>
+        <button class="button-back" mat-flat-button color="warn" (click)="comeback()">Come back</button>
+      </div>
+      <p>
+        {{character.description || "This heroe has not description"}}
+      </p>
       <mat-divider></mat-divider>
-      <img mat-card-image [src]="character.thumbnail | characterImage" [alt]="character.name">
+      <img class="character__image" [src]="character.thumbnail | characterImage" [alt]="character.name">
     </div>
   </div>
-  <button mat-button color="warn" (click)="comeback()">Come back</button>
+  <app-comic fxLayout="row wrap" *ngFor="let comic of character.comics.items" [comic]="comic"></app-comic>
+  <p *ngIf="character.comics.items.length === 0">This character does not have comics</p>
 </ng-template>

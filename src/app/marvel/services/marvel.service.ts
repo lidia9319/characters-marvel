@@ -5,7 +5,7 @@ import { map } from 'rxjs/operators';
 
 import * as md5 from 'md5';
 import { environment } from 'src/environments/environment';
-import { Character, CharactersRs } from '../interfaces/marvel.interfaces';
+import { Character, CharactersRs, Comic, ComicRs, ComicsItem } from '../interfaces/marvel.interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -53,5 +53,13 @@ export class MarvelService {
     }).pipe(
       map(response => response.data.results[0])
     )
+  }
+
+  getComic(url: string): Observable<Comic> {
+    return this.http.get<ComicRs>(url, {
+      params: this.setParams()
+    }).pipe(
+      map(response => response.data.results[0])
+    );
   }
 }

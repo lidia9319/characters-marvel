@@ -12,6 +12,12 @@
               <span>Heroes list</span>
           </a>
       </mat-nav-list>
+      <mat-nav-list (click)="sidenav.toggle()">
+        <a routerLink="/marvel/comics/my-list" mat-list-item>
+            <mat-icon mat-list-icon>favorite</mat-icon>
+            <span>My favorite comics</span>
+        </a>
+    </mat-nav-list>
   </mat-sidenav>
   <mat-toolbar class="between">
       <button mat-icon-button (click)="sidenav.toggle()">

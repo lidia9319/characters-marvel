@@ -38,7 +38,7 @@ img {
 }
 
 .ngx-pagination {
-  padding-left: 0px !important;
+  padding-left: 0 !important;
 }
 
 .ngx-pagination .disabled {
@@ -64,12 +64,12 @@ img {
 .btn-info {
   background: #7fc9ff !important;
   border: transparent !important;
-  border-radius: 20px !important;
+  border-radius: 2rem !important;
 }
 
 .ngx-pagination .current:hover {
   background: #17a2b8 !important;
-  border-radius: 20px !important;
+  border-radius: 2rem !important;
   border: transparent !important;
 }
 

@@ -6,14 +6,9 @@ import { Character } from '../../interfaces/marvel.interfaces';
   templateUrl: './character-card.component.html',
   styleUrls: ['./character-card.component.scss']
 })
-export class CharacterCardComponent implements OnInit {
+export class CharacterCardComponent {
 
   @Input() public character!: Character;
 
   constructor() { }
-
-  ngOnInit(): void {
-    console.log(this.character);
-  }
-
 }

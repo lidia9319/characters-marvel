@@ -1,7 +1,7 @@
 .character-card {
   background-color: #7fc9ff;
   border-radius: 0.4rem;
-  margin-top: 20px;
+  margin-top: 2rem;
   overflow: hidden;
 
   &__image {
@@ -28,8 +28,8 @@
     padding: 0.6rem;
 
     &:hover {
-      box-shadow: 0 1px 8px #1a782ec2;
-      transform: translateY(-2px);
+      box-shadow: 0 .1rem .8rem #1a782ec2;
+      transform: translateY(-.2rem);
     }
   }
 

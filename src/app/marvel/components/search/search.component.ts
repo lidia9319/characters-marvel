@@ -1,19 +1,17 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss'],
 })
-export class SearchComponent implements OnInit {
-  public term: string = '';
+export class SearchComponent {
+  term: string = '';
 
   @Output() newCharactersEvent: EventEmitter<string> = new EventEmitter<string>();
   @Output() initCharactersEvent: EventEmitter<void> = new EventEmitter<void>();
 
   constructor() { }
-
-  ngOnInit(): void { }
 
   handleKeyUp(event: KeyboardEvent) {
     if (!this.isValidFieldTerm() && event.key === "Backspace") {

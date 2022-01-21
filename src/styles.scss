@@ -37,6 +37,20 @@ img {
   padding: 1.6rem;
 }
 
+.grid-list-helper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  gap: 3.6rem;
+
+  @media screen and (min-width: 768px) {
+    grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+  }
+
+  @media screen and (min-width: 1200px) {
+    grid-template-columns: repeat(auto-fit, minmax(26rem, 26rem));
+  }
+}
+
 .ngx-pagination {
   padding-left: 0 !important;
 }
@@ -71,6 +85,20 @@ img {
   background: #17a2b8 !important;
   border-radius: 2rem !important;
   border: transparent !important;
+}
+
+.dialog-responsive {
+  width: 100%;
+}
+
+.cdk-global-overlay-wrapper {
+  padding: 1.6rem 0;
+}
+
+@media screen and (min-width: 480px) {
+  .dialog-responsive {
+    width: 36rem;
+  }
 }
 
 @media screen and (min-width: 768px) {

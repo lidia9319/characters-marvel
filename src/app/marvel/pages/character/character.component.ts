@@ -12,7 +12,7 @@ import { MarvelService } from 'src/app/marvel/services/marvel.service';
 })
 export class CharacterComponent implements OnInit {
 
-  public character!: Character;
+  character!: Character;
 
   constructor(private marvelService: MarvelService, private activatedRoute: ActivatedRoute, private router: Router, private spinner: NgxSpinnerService) { }
 
@@ -26,7 +26,7 @@ export class CharacterComponent implements OnInit {
     this.spinner.hide();
   }
 
-  comeback(): void {
+  comeback() {
     this.router.navigate(["./marvel/characters"]);
   }
 }

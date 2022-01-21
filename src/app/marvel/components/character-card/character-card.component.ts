@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Character } from '../../interfaces/marvel.interfaces';
 
 @Component({
@@ -8,7 +8,7 @@ import { Character } from '../../interfaces/marvel.interfaces';
 })
 export class CharacterCardComponent {
 
-  @Input() public character!: Character;
+  @Input() character!: Character;
 
   constructor() { }
 }

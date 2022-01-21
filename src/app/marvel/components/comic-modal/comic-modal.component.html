@@ -1,0 +1,21 @@
+<div class="comic-modal">
+  <div class="comic-modal__image">
+    <img [src]="comic.thumbnail.path + '.' + comic.thumbnail.extension" [alt]="comic.title" [alt]="comic.title">
+  </div>
+  <div class="comic-modal__body">
+    <p class="comic-modal__title">
+      {{comic.title}}
+    </p>
+    <p class="comic-modal__text" [title]="comic.description">
+      {{comic.description ? comic.description.slice(0, 200) + '...' : "This comic has not description"}}
+    </p>
+  </div>
+  <div class="comic-modal__actions">
+    <button mat-flat-button color="warn" class="comic-modal__add-btn" (click)="addToFavorite(comic)"
+      [disabled]="comicIsDuplicated(comic)">Add to
+      favorites</button>
+    <button class="comic-modal__close-btn" mat-button color="primary'" (click)="close()">
+      Close
+    </button>
+  </div>
+</div>

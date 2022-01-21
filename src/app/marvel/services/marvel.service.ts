@@ -1,11 +1,10 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import * as md5 from 'md5';
 import { environment } from 'src/environments/environment';
-import { Character, CharactersRs, Comic, ComicRs, ComicsItem } from '../interfaces/marvel.interfaces';
+import { CharactersRs, ComicRs } from '../interfaces/marvel.interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -31,7 +30,7 @@ export class MarvelService {
     return params;
   }
 
-  getAllCharacters(limit: number = 100, offset: number = 0): Observable<Character[]> {
+  getAllCharacters(limit: number = 100, offset: number = 0) {
     return this.http.get<CharactersRs>(`${environment.marvelAPI.baseUrl}/v1/public/characters?limit=${limit}&offset=${offset}`, {
       params: this.setParams()
     }).pipe(
@@ -39,7 +38,7 @@ export class MarvelService {
     )
   }
 
-  getCharactersByNameStartsWith(name: string): Observable<Character[]> {
+  getCharactersByNameStartsWith(name: string) {
     return this.http.get<CharactersRs>(`${environment.marvelAPI.baseUrl}/v1/public/characters?nameStartsWith=${name}`, {
       params: this.setParams()
     }).pipe(
@@ -47,7 +46,7 @@ export class MarvelService {
     )
   }
 
-  getCharacterById(id: number): Observable<Character> {
+  getCharacterById(id: number) {
     return this.http.get<CharactersRs>(`${environment.marvelAPI.baseUrl}/v1/public/characters/${id}`, {
       params: this.setParams()
     }).pipe(
@@ -55,8 +54,8 @@ export class MarvelService {
     )
   }
 
-  getComic(url: string): Observable<Comic> {
-    return this.http.get<ComicRs>(url, {
+  getComicById(id: number) {
+    return this.http.get<ComicRs>(`${environment.marvelAPI.baseUrl}/v1/public/comics/${id}`, {
       params: this.setParams()
     }).pipe(
       map(response => response.data.results[0])

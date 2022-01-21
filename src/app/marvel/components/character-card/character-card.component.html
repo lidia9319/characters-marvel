@@ -1,5 +1,5 @@
 <div class="character-card">
-  <img class="character-card__image" [src]="character.thumbnail | characterImage" alt="">
+  <img class="character-card__image" [src]="character.thumbnail.path + '.' + character.thumbnail.extension" alt="">
   <div class="character-card__body">
     <p class="character-card__title">
       {{character.name}}

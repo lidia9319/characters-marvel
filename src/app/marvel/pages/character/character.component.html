@@ -13,9 +13,15 @@
         {{character.description || "This heroe has not description"}}
       </p>
       <mat-divider></mat-divider>
-      <img class="character__image" [src]="character.thumbnail | characterImage" [alt]="character.name">
+      <img class="character__image" [src]="character.thumbnail.path + '.' + character.thumbnail.extension"
+        [alt]="character.name">
     </div>
   </div>
-  <app-comic fxLayout="row wrap" *ngFor="let comic of character.comics.items" [comic]="comic"></app-comic>
+  <div style="margin-top: 20px;">
+    <div fxLayout="row wrap" fxFlexAlign="center center" fxLayoutGap="10px">
+      <p>Comics:</p>
+      <app-comic fxLayout="row wrap" *ngFor="let comic of character.comics.items" [comicSelected]="comic"></app-comic>
+    </div>
+  </div>
   <p *ngIf="character.comics.items.length === 0">This character does not have comics</p>
 </ng-template>

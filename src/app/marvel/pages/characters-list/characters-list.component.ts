@@ -9,8 +9,8 @@ import { MarvelService } from 'src/app/marvel/services/marvel.service';
   styleUrls: ['./characters-list.component.scss']
 })
 export class CharactersListComponent implements OnInit {
-  public page: number = 1;
-  public characters: Character[] = [];
+  page: number = 1;
+  characters: Character[] = [];
 
   constructor(private marvelService: MarvelService, private sppiner: NgxSpinnerService) { }
 
@@ -28,7 +28,7 @@ export class CharactersListComponent implements OnInit {
     });
   }
 
-  getCharactersByNameStartsWith(name: string): void {
+  getCharactersByNameStartsWith(name: string) {
     this.sppiner.show();
     this.marvelService.getCharactersByNameStartsWith(name).subscribe(response => {
       this.characters = response;
